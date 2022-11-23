@@ -8,9 +8,9 @@
     ".NETCoreApp,Version=v7.0": {
       "API/1.0.0": {
         "dependencies": {
+          "Infrastructure": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.0",
-          "Microsoft.EntityFrameworkCore.Design": "6.0.3",
-          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.7",
+          "Microsoft.EntityFrameworkCore.Design": "6.0.7",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -73,15 +73,15 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/6.0.7": {},
-      "Microsoft.EntityFrameworkCore.Design/6.0.3": {
+      "Microsoft.EntityFrameworkCore.Design/6.0.7": {
         "dependencies": {
           "Humanizer.Core": "2.8.26",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.7"
         },
         "runtime": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {
-            "assemblyVersion": "6.0.3.0",
-            "fileVersion": "6.0.322.12306"
+            "assemblyVersion": "6.0.7.0",
+            "fileVersion": "6.0.722.31501"
           }
         }
       },
@@ -362,6 +362,20 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0",
           "System.Text.Encodings.Web": "6.0.0"
         }
+      },
+      "Core/1.0.0": {
+        "runtime": {
+          "Core.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "dependencies": {
+          "Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.7"
+        },
+        "runtime": {
+          "Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -413,12 +427,12 @@
       "path": "microsoft.entityframeworkcore.analyzers/6.0.7",
       "hashPath": "microsoft.entityframeworkcore.analyzers.6.0.7.nupkg.sha512"
     },
-    "Microsoft.EntityFrameworkCore.Design/6.0.3": {
+    "Microsoft.EntityFrameworkCore.Design/6.0.7": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Gc3XhQ4vLK4rlGpZi8zaa4bl0t894QxqMXHSbDSsx8d7ghRaLbGIH1tQawpo2hriU/q918eepbCyoISD89Xx1w==",
-      "path": "microsoft.entityframeworkcore.design/6.0.3",
-      "hashPath": "microsoft.entityframeworkcore.design.6.0.3.nupkg.sha512"
+      "sha512": "sha512-chshSATT8ugtqCiYryx5qDefK99o2ojyMCOIlQgetDhe83czL9Sp7s1a5MkvUyN5D4F0Vv8gXU77Wv+cplUJuw==",
+      "path": "microsoft.entityframeworkcore.design/6.0.7",
+      "hashPath": "microsoft.entityframeworkcore.design.6.0.7.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/6.0.7": {
       "type": "package",
@@ -629,6 +643,16 @@
       "sha512": "sha512-zaJsHfESQvJ11vbXnNlkrR46IaMULk/gHxYsJphzSF+07kTjPHv+Oc14w6QEOfo3Q4hqLJgStUaYB9DBl0TmWg==",
       "path": "system.text.json/6.0.0",
       "hashPath": "system.text.json.6.0.0.nupkg.sha512"
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

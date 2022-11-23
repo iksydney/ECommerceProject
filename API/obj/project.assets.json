@@ -657,6 +657,30 @@
         "build": {
           "buildTransitive/netcoreapp3.1/_._": {}
         }
+      },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
+      "Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Core": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Sqlite": "6.0.7"
+        },
+        "compile": {
+          "bin/placeholder/Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -1659,13 +1683,23 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.0",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.7",
-      "Microsoft.EntityFrameworkCore.Sqlite >= 6.0.7",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -1675,11 +1709,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\Api\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\Api\\API.csproj",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\API\\API.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\Api\\obj\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1695,7 +1729,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\Infrastructure\\Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -1715,10 +1753,6 @@
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
-            "target": "Package",
-            "version": "[6.0.7, )"
-          },
-          "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
             "version": "[6.0.7, )"
           },
