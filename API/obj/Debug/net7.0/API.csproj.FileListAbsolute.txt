@@ -105,3 +105,6 @@ C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\runtimes
 C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\runtimes\linux-musl-arm64\native\libe_sqlite3.so
 C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\runtimes\maccatalyst-arm64\native\libe_sqlite3.dylib
 C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\runtimes\maccatalyst-x64\native\libe_sqlite3.dylib
+C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\AutoMapper.dll
+C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\API.staticwebassets.runtime.json

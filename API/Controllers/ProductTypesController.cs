@@ -9,22 +9,18 @@ namespace API.Controllers
     [ApiController]
     public class ProductTypesController : ControllerBase
     {
-        private readonly IProductTypeRepository _repo;
-        public ProductTypesController(IProductTypeRepository repo)
-        {
-            _repo = repo;
-        }
+        private readonly IGenericRepository<ProductType> _repository;
         [HttpGet("GetAllProductTypes")]
         public async Task<ActionResult<List<ProductType>>> GetAllProductTypes()
         {
-            var productTypes = await _repo.GetAllProductTypesAsync();
+            var productTypes = await _repository.ListAllAsync();
             return Ok(productTypes);
         }
 
         [HttpGet("GetProductType/{id}")]
         public async Task<ActionResult<ProductType>> GetAllProductTypes(int id)
         {
-            var productType = await _repo.GetProductTypeById(id);
+            var productType = await _repository.GetByIdAsync(id);
             return Ok(productType);
         }
 

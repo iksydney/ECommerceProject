@@ -1,5 +1,8 @@
+using API.DTO;
+using AutoMapper;
 using Core.Entities;
 using Core.Interface;
+using Core.Specifications;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -8,24 +11,32 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _repo;
-        public ProductsController(IProductRepository repo)
+        private readonly IGenericRepository<Product> _repository;
+        private readonly IMapper _map;
+
+        public ProductsController(IGenericRepository<Product> repository, IMapper map)
         {
-            _repo = repo;
+            _repository = repository;
+            _map = map;
         }
+
         [HttpGet("GetAllProducts")]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductViewModel>>> GetProducts()
         {
-            var products = await _repo.GetAllProductsAsync();
-            return Ok(products);
+            var spec = new ProductsWithTypesAndBrandSpecification();
+
+            var products = await _repository.LIstAsync(spec);
+            return Ok(_map.Map<IReadOnlyList<Product>, IReadOnlyList<ProductViewModel>>(products));
         }
 
         //[ProducesResponseType(statusCode:StatusCode.Status200OK )]
         [HttpGet("GetAProduct/{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductViewModel>> GetProduct(int id)
         {
-            var product = await _repo.GetProductByIdAsync(id);
-            return Ok(product);
+            var spec = new ProductsWithTypesAndBrandSpecification(id);
+
+            var product = await _repository.GetEntityWithSpec(spec);
+            return _map.Map<Product, ProductViewModel>(product);
         }
 
     }

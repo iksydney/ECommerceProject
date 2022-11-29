@@ -9,8 +9,8 @@ namespace API.Controllers
     [ApiController]
     public class ProductBrandController : ControllerBase
     {
-        private readonly IProductBrandRepository _repo;
-        public ProductBrandController(IProductBrandRepository repo)
+        private readonly IGenericRepository<ProductBrand> _repo;
+        public ProductBrandController(IGenericRepository<ProductBrand> repo)
         {
             _repo = repo;
         }
@@ -18,14 +18,14 @@ namespace API.Controllers
         [HttpGet("GetAllProductBrand")]
         public async Task<ActionResult<List<ProductBrand>>> GetAllProductBrands()
         {
-            var productBrands = await _repo.GetAllProductBrandsAsync();
+            var productBrands = await _repo.ListAllAsync();
             return Ok(productBrands);
         }
 
         [HttpGet("GetAProductBrandById/{id}")]
         public async Task<ActionResult<List<ProductBrand>>> GetAProductBrandById(int id)
         {
-            var productBrand = await _repo.GetProductBrandByIdAsync(id);
+            var productBrand = await _repo.GetByIdAsync(id);
             return Ok(productBrand);
         }
     }
