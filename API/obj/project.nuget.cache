@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B2blmE1iIGxfIQ2+p6HHY2GQQDJ7IF2PTRm+1cqWorqRxTbwZ2mSvH07pkqRisbo/l5SZSSy/218Tl9AZL8JzQ==",
+  "dgSpecHash": "4SekpzRtMROG8/nSLRCUYLFTS1pgSGzxkksM0txDL4TW4bO87wZ86WqMJCx/8oMS/wyAEg/Hma2Xx0E6bTsZxA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\Desktop\\MYStartups\\ECommerceProject\\API\\API.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\7.0.0\\microsoft.aspnetcore.authentication.jwtbearer.7.0.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\7.0.0\\microsoft.aspnetcore.authentication.openidconnect.7.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

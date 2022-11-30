@@ -108,3 +108,5 @@ C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\runtimes
 C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\API.staticwebassets.runtime.json
+C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Admin\Desktop\MYStartups\ECommerceProject\API\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
