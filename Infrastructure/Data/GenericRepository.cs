@@ -27,16 +27,19 @@ namespace Infrastructure.Data
             return await ApplySpecifications(specification).FirstOrDefaultAsync();
         }
 
-        public async Task<IReadOnlyList<T>> LIstAsync(ISpecification<T> specification)
+        public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> specification)
         {
             return await ApplySpecifications(specification).ToListAsync();
+        }
+        public async Task<int> CountAsync(ISpecification<T> specification)
+        {
+            return await ApplySpecifications(specification).CountAsync();
         }
         
         private IQueryable<T> ApplySpecifications(ISpecification<T> spec)
         {
             return  SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
-
 
     }
 }

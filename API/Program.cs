@@ -26,6 +26,13 @@ builder.Services.AddApplicationService();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.SwaggerExtension();
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", opt =>
+    {
+        opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+    });
+});
 
 var app = builder.Build();
 
@@ -58,6 +65,7 @@ app.UseStatusCodePagesWithReExecute("/error/{0}");
 app.UseHttpsRedirection();
 app.UseRouting();
 app.UseStaticFiles();
+app.UseCors("CorsPolicy");
 
 app.UseAuthorization();
 
