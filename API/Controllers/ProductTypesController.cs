@@ -10,6 +10,11 @@ namespace API.Controllers
     public class ProductTypesController : ControllerBase
     {
         private readonly IGenericRepository<ProductType> _repository;
+        public ProductTypesController(IGenericRepository<ProductType> repository)
+        {
+            _repository = repository;
+        }
+
         [HttpGet("GetAllProductTypes")]
         public async Task<ActionResult<List<ProductType>>> GetAllProductTypes()
         {
