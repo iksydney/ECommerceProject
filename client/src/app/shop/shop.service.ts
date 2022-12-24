@@ -5,6 +5,7 @@ import { IBrands } from '../shared/models/brands';
 import { IProductPagination } from '../shared/models/pagination';
 import { IProductTypes } from '../shared/models/productTypes';
 import { ShopParams } from '../shared/models/shopParams';
+import { IProduct } from '../shared/models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ export class ShopService {
 baseUrl = 'https://localhost:7274/api/';
 
   constructor(private http: HttpClient) { }
+
+  getProduct(id: number){
+    return this.http.get<IProduct>(this.baseUrl + 'Products/GetAProduct/' + id);
+  }
 
   getProducts(shopParams: ShopParams){
     let params = new HttpParams();
@@ -25,6 +30,7 @@ baseUrl = 'https://localhost:7274/api/';
     {
       params = params.append('typeId', shopParams.typeId.toString());
     }
+    
     if(shopParams.search)
     {
       params = params.append('search', shopParams.search);
@@ -42,6 +48,11 @@ baseUrl = 'https://localhost:7274/api/';
       })
     );
   }
+
+  // getProduct<IProduct>(id:number)
+  // {
+  //   return this.http.get(this.baseUrl + 'Products/GetAProduct')
+  // }
 
   getTypes(){
     return this.http.get<IProductTypes[]>(this.baseUrl + 'ProductTypes/GetAllProductTypes');
