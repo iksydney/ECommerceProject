@@ -17,6 +17,7 @@ const routes: Routes =
   {path: 'server-error', component:ServerErrorComponent, data: {breadcrumb:'Server Error'}},
   {path: 'header', component:SectionHeaderComponent},
   {path:'shop', loadChildren: () => import('./shop/shop.module').then(x => x.ShopModule), data: {breadcrumb:'Shop'}},
+  {path:'basket', loadChildren: () => import('./basket/basket.module').then(x => x.BasketModule), data: {breadcrumb:'Basket'}},
   {path:'**', redirectTo:'not-found',pathMatch:'full'}
 ];
 
