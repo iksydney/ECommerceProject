@@ -4,29 +4,37 @@ using API.MiddleWare;
 using Core.Interface;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
+var service = builder.Services;
+var _config = builder.Configuration;
 
 // Add services to the container.
-builder.Services.AddControllers();
-builder.Services.AddAutoMapper(typeof(MappingProfiles));
-builder.Services.AddScoped<IProductTypeRepository, ProductTypeRepository>();
-builder.Services.AddScoped<IProductBrandRepository, ProductBrandRepository>();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("Path")));
+service.AddControllers();
+service.AddAutoMapper(typeof(MappingProfiles));
+service.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(_config.GetConnectionString("Path")));
+
+service.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(c =>
+{
+    var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+    return ConnectionMultiplexer.Connect(configuration);
+});
+
 
 //Used for the extension of services
-builder.Services.AddApplicationService();
+service.AddApplicationService();
 
-// builder.Services.AddDbContext<ApplicationDbContext>(opt =>
+// services.AddDbContext<ApplicationDbContext>(opt =>
 // {
 //     opt.UseSqlite(builder.Configuration.GetConnectionString("Path"));
 // });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+service.AddEndpointsApiExplorer();
 
-builder.Services.SwaggerExtension();
-builder.Services.AddCors(opt =>
+service.SwaggerExtension();
+service.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy", opt =>
     {
