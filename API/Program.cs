@@ -16,7 +16,8 @@ service.AddAutoMapper(typeof(MappingProfiles));
 service.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(_config.GetConnectionString("Path")));
 
-service.AddSingleton<IConnectionMultiplexer, ConnectionMultiplexer>(c =>
+//stackexchange redis configuration
+service.AddSingleton<IConnectionMultiplexer>(c =>
 {
     var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
     return ConnectionMultiplexer.Connect(configuration);
