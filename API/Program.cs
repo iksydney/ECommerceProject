@@ -20,6 +20,7 @@ service.AddDbContext<ApplicationDbContext>(options =>
 service.AddSingleton<IConnectionMultiplexer>(c =>
 {
     var configuration = ConfigurationOptions.Parse(_config.GetConnectionString("Redis"), true);
+    configuration.AbortOnConnectFail = true;
     return ConnectionMultiplexer.Connect(configuration);
 });
 
