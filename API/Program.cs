@@ -19,6 +19,7 @@ service.AddDbContext<ApplicationDbContext>(options =>
 
 service.AddDbContext<AppIdentityDbContext>(options =>
         options.UseSqlServer(_config.GetConnectionString("Identity")));
+// TO add a second or third migration use this => Add-Migration InitialCreate -Context AppIdentityDbContext -o Migrations/IdentityMigration
 
 //stackexchange redis configuration
 service.AddSingleton<IConnectionMultiplexer>(c =>
