@@ -34,7 +34,7 @@ service.AddSingleton<IConnectionMultiplexer>(c =>
 
 //Used for the extension of services
 service.AddApplicationService();
-service.AddIdentityServices();
+service.AddIdentityServices(_config);
 
 // services.AddDbContext<ApplicationDbContext>(opt =>
 // {
