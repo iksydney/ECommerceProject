@@ -1,9 +1,11 @@
 using API.Extensions;
 using API.Helpers;
 using API.MiddleWare;
+using Core.Entities.Identity;
 using Core.Interface;
 using Infrastructure.Data;
 using Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
@@ -32,6 +34,7 @@ service.AddSingleton<IConnectionMultiplexer>(c =>
 
 //Used for the extension of services
 service.AddApplicationService();
+service.AddIdentityServices();
 
 // services.AddDbContext<ApplicationDbContext>(opt =>
 // {
@@ -60,7 +63,12 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<ApplicationDbContext>();
         await context.Database.MigrateAsync();
-        //await StoreContextSeed.SeedAsync(context, loggerFactory);
+        await StoreContextSeed.SeedAsync(context, loggerFactory);
+
+        var userManager = services.GetRequiredService<UserManager<AppUser>>();
+        var identityContext = services.GetRequiredService<AppIdentityDbContext>();
+        await identityContext.Database.MigrateAsync();
+        await AppIdentityDbContextSeed.SeedUsersAsync(userManager);
     }
     catch (Exception ex)
     {
