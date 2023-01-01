@@ -1,7 +1,6 @@
 ﻿using API.DTO;
 using API.Errors;
 using Core.Entities.Identity;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
