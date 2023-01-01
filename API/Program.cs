@@ -3,6 +3,7 @@ using API.Helpers;
 using API.MiddleWare;
 using Core.Interface;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
@@ -15,6 +16,9 @@ service.AddControllers();
 service.AddAutoMapper(typeof(MappingProfiles));
 service.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(_config.GetConnectionString("Path")));
+
+service.AddDbContext<AppIdentityDbContext>(options =>
+        options.UseSqlServer(_config.GetConnectionString("Identity")));
 
 //stackexchange redis configuration
 service.AddSingleton<IConnectionMultiplexer>(c =>
