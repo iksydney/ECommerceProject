@@ -19,7 +19,7 @@
                 401 => "You are not authorized",
                 404 => "Resource not found",
                 500 => "Server side error encountered",
-                405 => "Bad Request(server knows the request method, but the target resource doesn't support this method => Kindly recheck the URL)",
+                405 => "Bad Request(server knows the request method, but the target resource doesn't support this method => Kindly recheck the URL and OR HTTP Method)",
             };
         }
     }
