@@ -1,16 +1,27 @@
+// .cart-no{
+//     position: relative;
+//     min-height: 25px;
+//     min-width: 25px;
+//     border-radius: 50%;
+//     font-size: 1em;
+//     background: blue;
+//     color: white;
+//     text-align: center;
+//     top: 20px;
+//     right: 235px;
+// }
+
 .cart-no{
-    position: absolute;
-    min-height: 25px;
-    min-width: 25px;
+    position: relative;
+    top:-40px;
     border-radius: 50%;
-    font-size: 1em;
     background: blue;
     color: white;
+    width: 20px;
+    font-size: 1em;
+    min-height: 25px;
     text-align: center;
-    top: 20px;
-    right: 235px;
 }
-
 a{
     text-decoration: none;
     color: #343a40;
