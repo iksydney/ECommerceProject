@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\API",
-    "\\API\\Data"
+    "\\API"
   ],
-  "SelectedNode": "\\ECommerceProject.sln",
+  "SelectedNode": "\\API\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

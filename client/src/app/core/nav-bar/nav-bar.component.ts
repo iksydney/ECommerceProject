@@ -15,10 +15,14 @@ export class NavBarComponent implements OnInit {
   constructor(private basketService: BasketService, private accountService: AccountService) { }
   basket$: Observable<IBasket>
   currentUser$: Observable<IUser>
-  ngOnInit(): void 
+
+  ngOnInit() 
   {
     this.basket$ = this.basketService.basket$;
     this.currentUser$ = this.accountService.currentUser$;
   }
-
+  
+  logout(){
+    this.accountService.logout();
+  }
 }

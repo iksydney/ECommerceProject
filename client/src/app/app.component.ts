@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './account/account.service';
 import { BasketService } from './basket/basket.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,13 @@ import { BasketService } from './basket/basket.service';
 export class AppComponent implements OnInit{
   title = 'client';
   
-  constructor(private basketService: BasketService, private accountService: AccountService){}
+  constructor(private basketService: BasketService, private accountService: AccountService, private spinner: NgxSpinnerService){}
 
   ngOnInit(): void 
   {
     this.loadBasket();
     this.loadCurrentUser();
+    this.spinner.show();
   }
 
   loadCurrentUser()
