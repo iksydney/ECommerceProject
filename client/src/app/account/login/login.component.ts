@@ -11,7 +11,7 @@ import { AccountService } from '../account.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   constructor(private accountService: AccountService, private router: Router){}
-  ngOnInit() 
+  ngOnInit()
   {
     this.createLoginForm();
   }
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   createLoginForm()
   {
     this.loginForm = new FormGroup({
-      emailAddress: new FormControl('', Validators.required),
+      emailAddress: new FormControl('', [Validators.required, Validators.pattern('^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$')]),
       password: new FormControl('', Validators.required)
     });
   }
@@ -27,11 +27,11 @@ export class LoginComponent implements OnInit {
   onSubmit()
   {
     this.accountService.login(this.loginForm.value).subscribe(() => {
-      //console.log('user logged in');  
+      //console.log('user logged in');
       this.router.navigateByUrl('/shop');
     }, error => {
       console.log(error);
-      
+
     })
   }
 

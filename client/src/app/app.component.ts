@@ -10,14 +10,14 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class AppComponent implements OnInit{
   title = 'client';
-  
+
   constructor(private basketService: BasketService, private accountService: AccountService, private spinner: NgxSpinnerService){}
 
-  ngOnInit(): void 
+  ngOnInit(): void
   {
     this.loadBasket();
     this.loadCurrentUser();
-    this.spinner.show();
+    // this.spinner.show();
   }
 
   loadCurrentUser()
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit{
         console.log('Loaded current User');
       }, error => {
         console.log(error);
-        
+
       })
     }
   }

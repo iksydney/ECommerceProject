@@ -48,7 +48,7 @@ service.AddCors(opt =>
 {
     opt.AddPolicy("CorsPolicy", opt =>
     {
-        opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+        opt.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200", "http://localhost:4200");
     });
 });
 
