@@ -9,10 +9,11 @@ import { HomeComponent } from './home/home.component';
 import { OrderTotalsComponent } from './shared/components/order-totals/order-totals.component';
 import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 import { ShopComponent } from './shop/shop.component';
+import { AuthGuard } from './core/guard/auth.guard';
 
-const routes: Routes = 
+const routes: Routes =
 [
-  //The data property is for the bredcrumb to read the navigation property.
+  //The data property is for the breadcrumb to read the navigation property.
   {path:'', component:HomeComponent, data: {breadcrumb:'Home'}},
   {path: 'test-error', component:TestErrorComponent, data: {breadcrumb:'Test Error'}},
   {path: 'not-found', component:NotFoundComponent, data: {breadcrumb:'Not Found'}},
@@ -21,7 +22,9 @@ const routes: Routes =
   {path: 'totals', component:OrderTotalsComponent},
   {path:'shop', loadChildren: () => import('./shop/shop.module').then(x => x.ShopModule), data: {breadcrumb:'Shop'}},
   {path:'basket', loadChildren: () => import('./basket/basket.module').then(x => x.BasketModule), data: {breadcrumb:'Basket'}},
-  {path:'checkout', loadChildren: () => import('./checkout/checkout.module').then(x => x.CheckoutModule), data: {breadcrumb:'Checkout'}},
+  {path:'checkout',
+  canActivate: [AuthGuard],
+  loadChildren: () => import('./checkout/checkout.module').then(x => x.CheckoutModule), data: {breadcrumb:'Checkout'}},
   {path:'account', loadChildren: () => import('./account/account.module').then(x => x.AccountModule), data: {breadcrumb: {skip: true}}},
   {path:'**', redirectTo:'not-found',pathMatch:'full'}
 ];
