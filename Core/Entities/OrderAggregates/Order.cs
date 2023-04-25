@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities.OrderAggregates
 {
-    public class Order
+    public class Order : BaseEntity<int>
     {
         public Order()
         {
@@ -22,7 +22,7 @@
         public DeliveryMethod DeliveryMethod { get; set; }
         public IReadOnlyList<Order> OrderItems { get; set; }
         public decimal SubTotal { get; set; }
-        public OrderStatus OrderStatus { get; set; } = OrderStatus.Pending;
+        public OrderStatus Status { get; set; } = OrderStatus.Pending;
         public string PaymentIntentId { get; set; }
         public decimal GetTotal()
         {
